@@ -1,5 +1,7 @@
 package no.hvl.dat110.ac.rest;
 
+import com.google.gson.Gson;
+
 public class AccessEntry {
 
 	private Integer id;
@@ -25,6 +27,18 @@ public class AccessEntry {
 	public void setMessage(String message) {
 		this.message = message;
 	}
+
+	public String toJson(){
+	    Gson gson = new Gson();
+
+	    return gson.toJson(this);
+    }
+
+	public static AccessEntry fromJson(String json) {
+        Gson gson = new Gson();
+        return gson.fromJson(json,AccessEntry.class);
+    }
+
 
 	
 }
